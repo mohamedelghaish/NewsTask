@@ -9,6 +9,7 @@ import Foundation
 import Combine
 
 class HomeViewModel: ObservableObject {
+    
     @Published var articles: [Article] = []
     private var cancellables = Set<AnyCancellable>()
     
@@ -22,5 +23,9 @@ class HomeViewModel: ObservableObject {
                 self?.articles = articles
             })
             .store(in: &cancellables)
+    }
+    
+    func clearArticles() {
+        articles.removeAll()
     }
 }

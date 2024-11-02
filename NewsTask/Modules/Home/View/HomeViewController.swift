@@ -91,6 +91,15 @@ class HomeViewController: UIViewController, UISearchBarDelegate,ArticleDetailDel
         let selectedDate = datePicker.date
         viewModel.fetchArticles(query: query, fromDate: selectedDate)
     }
+    
+    func searchBar(_ searchBar: UISearchBar, textDidChange searchText: String) {
+        if searchText.isEmpty {
+            
+            viewModel.clearArticles()
+            viewModel.fetchArticles(query: "apple", fromDate: nil)
+        }
+    }
+
 }
 
 
