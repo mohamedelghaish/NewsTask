@@ -114,13 +114,13 @@ extension HomeViewController: UICollectionViewDataSource, UICollectionViewDelega
         let selectedArticle = viewModel.articles[indexPath.row]
         
         let detailVC = storyboard?.instantiateViewController(withIdentifier: "ArticleDetailViewController") as! ArticleDetailViewController
-        //detailVC.article = selectedArticle
+        detailVC.article = selectedArticle
         
         detailVC.modalPresentationStyle = .pageSheet
         
         present(detailVC, animated: true)
         
-        //detailVC.delegate = self
+        detailVC.delegate = self
     }
 
 }

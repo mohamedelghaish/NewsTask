@@ -17,7 +17,7 @@ class ArticleDetailViewController: UIViewController {
     @IBOutlet weak var labelView: UIView!
     
     var article: Article?
-    //var favoriteViewModel: FavoriteViewModel?
+    var favoriteViewModel: FavoriteViewModel?
     weak var delegate: ArticleDetailDelegate?
     @IBOutlet weak var articleImage: UIImageView!
     @IBOutlet weak var articleTitle: UILabel!
@@ -48,19 +48,17 @@ class ArticleDetailViewController: UIViewController {
     
     @IBAction func saveArticle(_ sender: Any) {
         if let article = article {
-            // Check if the article is already a favorite
             if favoriteViewModel?.isArticleFavorite(article) == true {
-                // Show an alert indicating the article is already added
+                
                 let alert = UIAlertController(title: "Already Added", message: "This article is already in your favorites.", preferredStyle: .alert)
                 alert.addAction(UIAlertAction(title: "OK", style: .default, handler: nil))
                 present(alert, animated: true, completion: nil)
             } else {
-                // Save the article if it's not already a favorite
+               
                 favoriteViewModel?.saveArticle(article)
-                self.dismiss(animated: true) { // Use the completion handler
-                    // Show the alert here if needed
+                self.dismiss(animated: true) {
                     self.delegate?.didSaveArticle()
-                    //self.delegate?.showSuccessAlert() // Assuming you want to notify HomeViewController to show the alert
+                    
                 }
             }
         }

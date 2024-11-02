@@ -23,15 +23,15 @@ struct Article: Codable, Identifiable {
     let urlToImage: String?
     let publishedAt: String
     
-//    init(from favorite: FavoriteArticle, source: Source) {
-//        self.source = source
-//        self.title = favorite.title ?? "No Title"
-//        self.author = favorite.auther ?? "Unknown Author"
-//        self.description = favorite.desc ?? "No Description"
-//        self.url = favorite.url ?? "No URL"
-//        self.urlToImage = "favorite.urlToImage"
-//        self.publishedAt = ""
-//    }
+    init(from favorite: FavoriteArticle, source: Source) {
+        self.source = source
+        self.title = favorite.title ?? "No Title"
+        self.author = favorite.auther ?? "Unknown Author"
+        self.description = favorite.desc ?? "No Description"
+        self.url = favorite.url ?? "No URL"
+        self.urlToImage = favorite.url
+        self.publishedAt = ""
+    }
 }
 
 
