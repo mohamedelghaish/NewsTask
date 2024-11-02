@@ -13,7 +13,6 @@ class ArticleCollectionViewCell: UICollectionViewCell {
     
     @IBOutlet weak var cellView: UIView!
     
-    
     @IBOutlet weak var labelView: UIView!
     @IBOutlet weak var articleImageView: UIImageView!
     @IBOutlet weak var titleLabel: UILabel!
@@ -24,7 +23,6 @@ class ArticleCollectionViewCell: UICollectionViewCell {
         super.awakeFromNib()
         cellView.layer.cornerRadius = 12.0
         articleImageView.layer.cornerRadius = 12.0
-        
         labelView.layer.cornerRadius = 12.0
     }
 
